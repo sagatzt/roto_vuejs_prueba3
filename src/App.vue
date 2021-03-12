@@ -45,6 +45,7 @@
 
 }
 .nota {
+    display:none;
     position:fixed;
     bottom:0px;
     width:100%;

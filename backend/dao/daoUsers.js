@@ -1,11 +1,15 @@
 const User = require('../models/User')
+const Book = require('../models/Book')
 
 const daoUsers={}
 
 //función para guardar un usuario
 daoUsers.guardar = function guardar(body){
-    let usuario = new User(form)
-    usuario.save()
+    let usuario = new User(body)
+    usuario.save().then(data=>{
+        let libro= new Book({usuario:data._id,titulo:'El superzorro', texto:'Erase una vez...'})
+        libro.save()
+    })
 }
 
 //función para listar usurios
@@ -16,6 +20,16 @@ daoUsers.listar = function listar(){
         .catch(err=>reject(err))
     })    
 }
+
+//función para listar usurios
+daoUsers.listarLibros = function listarLibros(){
+    return new Promise((resolved,reject)=>{
+        Book.find().populate('usuario').lean()
+        .then(libros=>resolved(libros))
+        .catch(err=>reject(err))
+    })    
+}
+
 
 //función para eliminar usuario
 daoUsers.eliminar = function eliminar(id){

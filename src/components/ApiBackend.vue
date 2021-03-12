@@ -5,7 +5,7 @@
             <div>Nombre: <input v-model="nombre"></div>
             <div>Apellidos: <input v-model="apellidos"></div>
             <div>Email: <input v-model="email"></div>
-            <div>Password: <input v-model="pasword"></div>
+            <div>Password: <input v-model="password"></div>
             <button @click="enviar" class="btn btn-primary">Enviar</button>
       </div>
     <hr>
@@ -22,7 +22,7 @@
             {{usuario.nombre}} 
             {{usuario.apellidos}} | 
             {{usuario.email}} |
-            ******
+            {{usuario.password}}
         </div>
     </div>
   </div>

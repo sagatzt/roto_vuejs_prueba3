@@ -1,6 +1,6 @@
 <template>
   <div class="loginbox">
-    <div class="formulario" v-if="user.email">
+    <div class="formulario" v-if="!user.email">
       <input v-model="email" placeholder="email" />
       <input v-model="password" placeholder="password" />
       <div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed } from "vuex";
+import { ref, reactive, computed } from "vue";
 import { useStore } from "vuex";
 export default {
   name: "LoginBox",
@@ -29,16 +29,18 @@ export default {
     });
 
     function login() {
+      console.log(email.value,password.value)
       fetch("http://localhost:8081/api/login", {
         method: "POST",
         body: JSON.stringify({
           email: email.value,
           password: password.value,
         }),
-        headers: { "ContentType": "Application/json" },
+        headers: { "Content-Type": "Application/json" },
       })
         .then((resp) => resp.json())
         .then((user) => {
+          console.log(user)
           if (user) store.commit("setUser", user)
           else alert("Usuario o password incorrectos")
         })
@@ -49,7 +51,7 @@ export default {
     }
 
     return {
-      email,
+      email,password,
       login, logout,
       user,
     }

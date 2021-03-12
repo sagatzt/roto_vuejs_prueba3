@@ -19,13 +19,20 @@ rtMain.get('/listar',(req,res)=>{
         })
 })
 
+rtMain.get('/listar-libros',(req,res)=>{
+    daoUsers.listarLibros()
+        .then(libros=>res.json(libros))
+})
+
 rtMain.post('/eliminar',(req,res)=>{
     daoUsers.eliminar(req.body.id)
     res.json({respuesta: 'ok'})
 })
 
 rtMain.post('/login',(req,res)=>{
+    console.log(req.body.email,req.body.password)
     daoUsers.login(req.body.email,req.body.password)
         .then(data=>res.json(data))
 })
 
+module.exports=rtMain
