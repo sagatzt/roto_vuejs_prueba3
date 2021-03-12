@@ -9,7 +9,7 @@
   </div>
   <router-view />
   <div class="nota">
-    <p><b>NOTA: </b>Debéis crear una función para que el password aparezca
+    <p><b>NOTA: </b>Debéis crear una función para que el password se oculte
     con asteriscos. Junto al password habrá un icono de un ojo abierto que,
     al pulsarlo, os dejará ver el password SOLO MIENTRAS ESTÉ EL BOTÓN DEL 
     RATÓN PULSADO. Cuando se suelte el botón del ratón, volverá a ocultarse
