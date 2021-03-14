@@ -8,6 +8,7 @@
     </div>
   </div>
   <router-view />
+  <h1>Este es un nuevo commit</h1>
   <div class="nota">
     <p><b>NOTA: </b>Debéis crear una función para que el password aparezca
     con asteriscos. Junto al password habrá un icono de un ojo abierto que,
